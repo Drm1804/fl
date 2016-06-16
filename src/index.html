@@ -15,7 +15,7 @@
 <body>
   <fl-app>Loading...</fl-app>
 
-  
+
 
     {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}}
     <script>
@@ -24,7 +24,22 @@
       }).catch(console.error.bind(console));
     </script>
 
-  
+
+
+  <script language="javascript">
+    VK.init({
+      apiId: 4986848
+    });
+    function authInfo(response) {
+      if (response.session) {
+        alert('user: '+response.session.mid);
+      } else {
+        alert('not auth');
+      }
+    }
+    VK.Auth.getLoginStatus(authInfo);
+    VK.UI.button('login_button');
+  </script>
 
 
 
