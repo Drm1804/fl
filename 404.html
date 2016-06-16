@@ -12,7 +12,7 @@
 <body>
   <fl-app>Loading...</fl-app>
 
-  
+
 
     <script src="vendor/es6-shim/es6-shim.js"></script><script src="vendor/reflect-metadata/Reflect.js"></script><script src="vendor/systemjs/dist/system.src.js"></script><script src="vendor/zone.js/dist/zone.js"></script>
     <script>
@@ -21,7 +21,22 @@
       }).catch(console.error.bind(console));
     </script>
 
-  
+
+
+  <script language="javascript">
+    VK.init({
+      apiId: 4986848
+    });
+    function authInfo(response) {
+      if (response.session) {
+        alert('user: '+response.session.mid);
+      } else {
+        alert('not auth');
+      }
+    }
+    VK.Auth.getLoginStatus(authInfo);
+    VK.UI.button('login_button');
+  </script>
 
 
 
