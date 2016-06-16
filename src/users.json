@@ -1,0 +1,71 @@
+{
+  "response": {
+    "count": 721,
+    "items": [
+      {
+        "id": 2,
+        "first_name": "Александра",
+        "last_name": "Владимирова",
+        "hidden": 1
+      },
+      {
+        "id": 5,
+        "first_name": "Илья",
+        "last_name": "Перекопский",
+        "bdate": "18.11"
+      },
+      {
+        "id": 6,
+        "first_name": "Николай",
+        "last_name": "Дуров",
+        "hidden": 1
+      },
+      {
+        "id": 7,
+        "first_name": "Алексей",
+        "last_name": "Кобылянский",
+        "bdate": "24.6.1984",
+        "hidden": 1
+      },
+      {
+        "id": 12,
+        "first_name": "Юлий",
+        "last_name": "Джумасултанов",
+        "bdate": "28.12",
+        "hidden": 1
+      },
+      {
+        "id": 20,
+        "first_name": "Илья",
+        "last_name": "Турпиашвили"
+      },
+      {
+        "id": 21,
+        "first_name": "Михаил",
+        "last_name": "Равдоникас",
+        "bdate": "23.7.1985"
+      },
+      {
+        "id": 22,
+        "first_name": "Семен",
+        "last_name": "Воронин",
+        "bdate": "31.1.1986",
+        "hidden": 1
+      },
+      {
+        "id": 23,
+        "first_name": "Андрей",
+        "last_name": "Столбовский",
+        "bdate": "14.11",
+        "hidden": 1
+      },
+      {
+        "id": 34,
+        "first_name": "Татьяна",
+        "last_name": "Плуталова",
+        "bdate": "2.6"
+      }
+    ]
+  }
+}
+

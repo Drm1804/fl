@@ -4,7 +4,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 @Component({
     moduleId: module.id,
     selector: 'friends',
-    template: '<p>u9ulkjlk;jl;j;lj</p>',
+    templateUrl: 'friends.component.html',
     directives: [ROUTER_DIRECTIVES]
 })
 
@@ -13,3 +13,4 @@ export class FriendsComponent implements OnInit {
     ngOnInit() {
     }
 }
+
