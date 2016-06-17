@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ROUTER_DIRECTIVES, Routes, Router} from '@angular/router';
 
 import {APP_PROVIDERS} from './fl.providers';
 import {FriendsComponent} from './friends.component/friends.component';
 import {NavbarComponent} from './shared/index'
 import {AboutComponent} from './about/index'
-
+import {AuthService} from './shared/services/auth.services';
 
 @Component({
     moduleId: module.id,
@@ -13,7 +13,7 @@ import {AboutComponent} from './about/index'
     styleUrls: ['fl.component.css'],
     templateUrl: 'fl.component.html',
     directives: [ROUTER_DIRECTIVES, NavbarComponent],
-    providers: [APP_PROVIDERS]
+    providers: [APP_PROVIDERS, AuthService]
 })
 
 @Routes([
@@ -23,6 +23,16 @@ import {AboutComponent} from './about/index'
     {path: '*', component: FriendsComponent}
 ])
 
-export class FlAppComponent {
+export class FlAppComponent implements OnInit {
+
+
+  constructor(private authService:AuthService) {}
+
+  ngOnInit() {
+    console.log(this.authService)
+    this.authService.init()
+
+  }
+
 
 }

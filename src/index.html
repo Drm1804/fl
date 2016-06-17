@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
 </head>
 <body>
   <fl-app>Loading...</fl-app>
@@ -27,22 +28,21 @@
 
 
 
-  <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
-  <script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
-  <script language="javascript">
-    VK.init({
-      apiId: 4986848
-    });
-    function authInfo(response) {
-      if (response.session) {
-        alert('user: '+response.session.mid);
-      } else {
-        alert('not auth');
-      }
-    }
-    VK.Auth.getLoginStatus(authInfo);
-    VK.UI.button('login_button');
-  </script>
+
+  <!--<script language="javascript">-->
+    <!--VK.init({-->
+      <!--apiId: 4986848-->
+    <!--});-->
+    <!--function authInfo(response) {-->
+      <!--if (response.session) {-->
+        <!--alert('user: '+response.session.mid);-->
+      <!--} else {-->
+        <!--alert('not auth');-->
+      <!--}-->
+    <!--}-->
+    <!--VK.Auth.getLoginStatus(authInfo);-->
+    <!--VK.UI.button('login_button');-->
+  <!--</script>-->
 
 
 

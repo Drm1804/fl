@@ -20,9 +20,12 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+
   isActiveRoute(route: string){
     return this.router.serializeUrl(this.router.urlTree) == this.router.serializeUrl((this.router.createUrlTree([route])));
+  }
+  logIn(){
+    console.log('asfsdfsdf')
   }
 
 }
