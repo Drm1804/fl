@@ -4,51 +4,59 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
-  public users: any;
-  private _usersObserver: any;
-  private _users:any = [];
+  public isAuth:boolean;
 
   constructor() {
-    // this.users = new Observable(observer => {
-    //   this._usersObserver = observer;
-    // });
+    this.isAuth = false;
   }
 
 
-  private getUsers () {
-    VK.Api.call('friends.get', {fields: ['photo_50','education']}, function(r){
-      console.log(r)
-      if(r.response) {
+  private getUsers() {
+    VK.Api.call('friends.get', {fields: ['photo_50', 'education']}, function (r) {
+      if (r.response) {
         this._users = r.response;
-        console.log("Пользователи загружены!");
-        // this.fetchUsers();
-      }else{
-        console.log("Ошибка получения пользователей!");
       }
     });
   }
 
   // Инициализируем vk.com
   init() {
-      VK.init({
-        apiId: 5419902
-      });
+    VK.init({
+      apiId: 4986848
+    });
+
+    if (localStorage.getItem('user.session') !== null) {
+      console.log(localStorage.getItem('user.session'))
+      this.isAuth = true;
+    }
   }
 
-  checkLoginStatus(){
-    VK.Auth.getLoginStatus(function(response){
+  logIn() {
+
+    VK.Auth.login((response)=> {
+      localStorage.setItem('user.session', JSON.stringify(response.session));
+      this.isAuth = true;
+    });
+  }
+
+  logOut() {
+
+    localStorage.removeItem('user.session');
+    VK.Auth.logout(()=> {
+      localStorage.removeItem('user.session');
+      this.isAuth = false;
+
+    });
+
+  }
+
+  checkLoginStatus() {
+
+    var _this = this;
+
+    VK.Auth.getLoginStatus(function (response) {
       if (response.session && localStorage.getItem('user.session')!== null) {
-        this.getUsers();
-      } else {
-        VK.Auth.login(function(response){
-          if (response.session) {
-            localStorage.setItem('user.session', JSON.stringify(response.session) );
-            this.getUsers();
-          } else {
-            console.log('/* Пользователь нажал кнопку Отмена в окне авторизации */');
-            return false;
-          }
-        });
+        _this.isAuth = true;
       }
     });
   }

@@ -19,7 +19,6 @@ import {AuthService} from './shared/services/auth.services';
 @Routes([
     {path: '/', component: FriendsComponent},
     {path: '/about', component: AboutComponent},
-    // { path: '/customer/:id', component: CustomerComponent },
     {path: '*', component: FriendsComponent}
 ])
 
@@ -29,7 +28,7 @@ export class FlAppComponent implements OnInit {
   constructor(private authService:AuthService) {}
 
   ngOnInit() {
-    console.log(this.authService)
+    // console.log(this.authService)
     this.authService.init()
 
   }

@@ -18,12 +18,10 @@
           <a [routerLink]="['/']">Friends</a>
         </li>
         <li [class.active]="isActiveRoute('/about')">
-          <a [routerLink]="['/about']">About</a>
+          <a [routerLink]="['about']">About</a>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a (click)="logIn()">Авторизоваться в ВК</a></li>
-      </ul>
+
     </div>
   </div>
 </nav>

@@ -26,8 +26,7 @@ export class NavbarComponent implements OnInit {
   isActiveRoute(route: string){
     return this.router.serializeUrl(this.router.urlTree) == this.router.serializeUrl((this.router.createUrlTree([route])));
   }
-  logIn(){
-    this.authService.checkLoginStatus()
-  }
+
+
 
 }
