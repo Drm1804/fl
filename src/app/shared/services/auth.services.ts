@@ -26,7 +26,6 @@ export class AuthService {
     });
 
     if (localStorage.getItem('user.session') !== null) {
-      console.log(localStorage.getItem('user.session'))
       this.isAuth = true;
     }
   }
@@ -40,14 +39,9 @@ export class AuthService {
   }
 
   logOut() {
-
     localStorage.removeItem('user.session');
-    VK.Auth.logout(()=> {
-      localStorage.removeItem('user.session');
-      this.isAuth = false;
-
-    });
-
+    this.isAuth = false;
+    VK.Auth.logout();
   }
 
   checkLoginStatus() {
