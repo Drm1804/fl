@@ -13,11 +13,16 @@ export class NavbarComponent implements OnInit {
 
   title: string;
 
-  constructor() {
+  constructor(public router: Router) {
     this.title = 'FL'
   }
 
   ngOnInit() {
+  }
+
+  
+  isActiveRoute(route: string){
+    return this.router.serializeUrl(this.router.urlTree) == this.router.serializeUrl((this.router.createUrlTree([route])));
   }
 
 }
