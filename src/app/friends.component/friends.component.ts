@@ -32,7 +32,6 @@ export class FriendsComponent implements OnInit {
 
   changeSort(sort:string){
     this.sortBy = sort;
-    console.log( this.sortBy)
   }
 }
 
