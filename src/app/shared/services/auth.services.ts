@@ -7,7 +7,6 @@ export class AuthService {
   public isAuth:boolean;
 
   constructor() {
-    this.isAuth = false;
   }
 
 
@@ -36,6 +35,11 @@ export class AuthService {
       localStorage.setItem('user.session', JSON.stringify(response.session));
       this.isAuth = true;
     });
+  }
+
+
+  checkAuth(){
+    return this.isAuth
   }
 
   logOut() {

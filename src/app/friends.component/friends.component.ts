@@ -1,9 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, NgZone} from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { DataService } from '../shared/services/data.services';
-import { AuthService } from '../shared/services/auth.services';
 import { IFriend } from '../shared/interfaces';
 import { OrderFriendsByPipe } from './shared/orderfriendsby.pipe';
 
@@ -18,10 +17,15 @@ import { OrderFriendsByPipe } from './shared/orderfriendsby.pipe';
 export class FriendsComponent implements OnInit {
 
   sortBy: string;
+  isAuth: boolean;
   friends: IFriend[] = [];
 
-  constructor(private dataService:DataService, private authService:AuthService) {
-    this.sortBy = 'last_name'
+  constructor(private dataService:DataService, private zone:NgZone) {
+    this.sortBy = 'last_name';
+
+
+    this.zone.onMicrotaskEmpty
+      .subscribe(() => this.zone.run(() => this.tick()));
   }
 
   ngOnInit() {
@@ -31,16 +35,13 @@ export class FriendsComponent implements OnInit {
       });
   }
 
-  isAuth() {
-    return (this.authService.isAuth)
-  }
+  tick() {
+    if(localStorage.getItem('user.session') !== null){
+      this.isAuth = true;
+    } else {
+      this.isAuth = false;
+    }
 
-  logIn(){
-    this.authService.logIn();
-  }
-
-  logOut(){
-    this.authService.logOut()
   }
 
   changeSort(sort:string){

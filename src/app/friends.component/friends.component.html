@@ -1,7 +1,4 @@
-<button *ngIf="!isAuth()" type="button" class="btn btn-default" (click)="logIn()">Авторизоваться через ВК</button>
-<button *ngIf="isAuth()" type="button" class="btn btn-default" (click)="logOut()">Выход</button>
-<br><br>
-<div *ngIf="isAuth()">
+<div *ngIf="isAuth">
   <button type="button" class="btn btn-default" [class.active]="sortBy === 'first_name'" (click)="changeSort('first_name')">По имени</button>
   <button type="button" class="btn btn-default" [class.active]="sortBy === 'last_name'" (click)="changeSort('last_name')">По фамилии</button>
 
