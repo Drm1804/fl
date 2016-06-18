@@ -29,6 +29,10 @@ export class FriendsComponent implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
+  getMyFriends(){
     this.dataService.getFriends()
       .subscribe((friends:IFriend[]) => {
         this.friends = friends;

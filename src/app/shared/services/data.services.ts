@@ -19,7 +19,10 @@ export class DataService {
 
   getFriends() : Observable<IFriend[]> {
     if (!this.friends) {
-      return this.http.get(this._baseUrl + 'friends.json')
+      var dataUser = JSON.parse(localStorage.getItem('user.session'))
+      console.log(dataUser)
+      console.log(dataUser.user.id)
+      return this.http.post('http://api.vk.com/method/friends.get?user_id='+dataUser.user.id+'&count=100&fields=bdate&v=5.52', dataUser)
         .map((res: Response) => {
           this.friends = res.json();
           return this.friends;
