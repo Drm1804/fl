@@ -1,0 +1,13 @@
+.fl-custom-nav{
+
+}
+
+.fl-custom-nav{
+
+}
+.fl-custom-nav-item{
+  background: #f8f8f8;
+}
+.fl-custom-nav-item .router-link-active{
+  background: red;
+}
